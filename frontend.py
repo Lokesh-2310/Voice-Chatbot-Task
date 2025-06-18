@@ -11,13 +11,12 @@ st.title("🎙️Voice Assistant Chatbot")
 st.markdown("Speak into the mic and get a smart response powered by GROQ Llama Model!")
 
 with st.sidebar:
-    if st.button("🎤 Start Voice Interaction"):
-        record_audio()
-        voice_text = convert_voice_to_text()
+        status=record_audio()
+        if status:
+            voice_text = convert_voice_to_text()
 
 prompt = st.chat_input("Say something using voice interaction")
 if prompt or voice_text:
-    # st.write(f"User has sent the following prompt: {prompt}")
     if prompt is not None:
         with st.chat_message("human"):
             st.write(prompt)
@@ -42,4 +41,3 @@ if prompt or voice_text:
     else:
         st.error("Provide me the query.")
         
-    
