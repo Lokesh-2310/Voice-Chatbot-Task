@@ -27,3 +27,4 @@ def convert_voice_to_text(stt_model=VOICE_TO_TEXT_MODEL, GROQ_API_KEY=GROQ_API_K
     
     except : 
         st.error("Audio is too short.")
+        return None
