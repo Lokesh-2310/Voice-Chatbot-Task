@@ -1,6 +1,7 @@
 import streamlit as st
 from audio_recorder_streamlit import audio_recorder
 import time
+import os
 
 def record_audio(file_path="output.wav"):
     """
@@ -12,13 +13,17 @@ def record_audio(file_path="output.wav"):
     Returns:
         bytes: The raw audio bytes recorded from the browser, or None if no recording
     """
+    
+    if os.path.exists(file_path):
+        os.remove(file_path)
+    
     st.info("Click the mic icon and start speaking...")
 
-    audio_bytes = audio_recorder(text="Click and Speak", pause_threshold=2, sample_rate=41_000, icon_size="2x")
+    audio_bytes = audio_recorder(text="Click and Speak", pause_threshold=1, sample_rate=44100, icon_size="2x")
     
-    time.sleep(2)
+    time.sleep(1)
     
-    st.info("Click the mic icon again to stop recording...")
+    st.info("Click the mic icon again to stop recording manually...")
 
     if audio_bytes:
         st.success("Recording received!")
