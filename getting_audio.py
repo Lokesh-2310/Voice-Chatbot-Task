@@ -13,7 +13,8 @@ def record_audio(file_path="output.wav"):
     """
     st.info("Click the mic icon and start speaking...")
 
-    audio_bytes = audio_recorder(text="Click and Speak", pause_threshold=1, sample_rate=41_000, icon_size="2x")
+    audio_bytes = audio_recorder(text="Click and Speak", pause_threshold=1, sample_rate=41_000, icon_size="2x",recording_color="#e8b62c",
+    neutral_color="#6aa36f")
     
     st.info("Click the mic icon again to stop recording...")
 
