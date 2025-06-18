@@ -2,6 +2,5 @@ streamlit
 langchain-groq
 groq
 gTTS
-pyaudio
-pydub
 SpeechRecognition
+audio-recorder-streamlit
