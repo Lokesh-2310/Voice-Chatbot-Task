@@ -8,7 +8,8 @@ voice_text=None
 prompt=None
 
 st.set_page_config(page_title="Voice Chabot",initial_sidebar_state="expanded")
-st.title("🎙️Voice Assistant Chatbot")
+
+st.title("🎙️Lokesh Voice Assistant Chatbot")
 st.markdown("Speak into the mic and get a smart response powered by GROQ Llama Model!")
 
 with st.sidebar:
@@ -16,7 +17,7 @@ with st.sidebar:
         if status:
             voice_text = convert_voice_to_text()
 
-prompt = st.chat_input("Say something using voice interaction")
+prompt = st.chat_input("Say something using voice interaction or prompt")
 if prompt or voice_text:
     if prompt is not None:
         with st.chat_message("human"):
@@ -34,6 +35,7 @@ if prompt or voice_text:
             st.write(voice_text)
             
         response = response_by_chatbot(voice_text)
+        
 
         with st.chat_message("ai"):
             speak_response(response_text=response)
@@ -42,3 +44,4 @@ if prompt or voice_text:
     else:
         st.error("Provide me the query.")
         
+    
