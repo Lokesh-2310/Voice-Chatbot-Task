@@ -7,6 +7,7 @@ from speech import speak_response
 voice_text=None
 prompt=None
 
+st.set_page_config(page_title="Voice Chabot",initial_sidebar_state="expanded")
 st.title("🎙️Voice Assistant Chatbot")
 st.markdown("Speak into the mic and get a smart response powered by GROQ Llama Model!")
 
