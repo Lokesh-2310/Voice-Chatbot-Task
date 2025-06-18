@@ -1,5 +1,6 @@
 import streamlit as st
 from audio_recorder_streamlit import audio_recorder
+import time
 
 def record_audio(file_path="output.wav"):
     """
@@ -13,8 +14,9 @@ def record_audio(file_path="output.wav"):
     """
     st.info("Click the mic icon and start speaking...")
 
-    audio_bytes = audio_recorder(text="Click and Speak", pause_threshold=1, sample_rate=41_000, icon_size="2x",recording_color="#e8b62c",
-    neutral_color="#6aa36f")
+    audio_bytes = audio_recorder(text="Click and Speak", pause_threshold=2, sample_rate=41_000, icon_size="2x")
+    
+    time.sleep(2)
     
     st.info("Click the mic icon again to stop recording...")
 
@@ -23,6 +25,6 @@ def record_audio(file_path="output.wav"):
         # Save directly as WAV file
         with open(file_path, "wb") as f:
             f.write(audio_bytes)
-        return audio_bytes
-
+        return True
+    
     return None
